@@ -3,7 +3,7 @@ import Select from "#components/form/select/select";
 import { themeList } from "#features/theme/config/theme-list";
 import { useCallback, useEffect, type FC } from "react";
 import { useTheme } from "#features/theme/state/theme.context";
-import Checkbox from "#components/form/checkbox/checkbox";
+// import Checkbox from "#components/form/checkbox/checkbox";
 import PreviewHint from "#components/preview-hint/preview-hint";
 import Button from "#components/button/button";
 
