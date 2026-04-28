@@ -1,0 +1,19 @@
+.button {
+  padding: var(--spacing-2) var(--spacing-4);
+  color: var(--text-color);
+  background: var(--background-color);
+  border-radius: var(--border-radius-2);
+
+  &:hover,
+  &focus {
+    box-shadow: 0 0 3px 0 var(--text-color);
+  }
+
+  &:active {
+    background: color-mix(
+      in srgb,
+      var(--background-color) 80%,
+      contrast-color(var(--background-color)) 20%
+    );
+  }
+}

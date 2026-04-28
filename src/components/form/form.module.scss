@@ -1,0 +1,48 @@
+.inputbox {
+  padding: var(--spacing-2) var(--spacing-4);
+  border: none;
+
+  color: var(--text-color);
+  background: var(--background-color);
+
+  flex: 1;
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    flex: initial;
+  }
+}
+
+.inputcontainer {
+  position: relative;
+  border: 1px solid var(--text-color);
+
+  display: flex;
+  flex-direction: row;
+
+  &:has(.inputlabelfloat) {
+    margin-top: var(--text-size-xs);
+  }
+}
+
+@mixin label {
+  font-weight: 600;
+  font-size: var(--text-size-xs);
+
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+.inputlabelfloat {
+  @include label;
+
+  position: absolute;
+  top: calc(-1 * var(--text-size-xs));
+  left: var(--spacing-2);
+  padding: 0 var(--spacing-1);
+  border-radius: var(--border-radius-1);
+}
+
+.inputlabel {
+  @include label;
+}

@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  z-index: 10;
+  text-align: center;
+  font-size: var(--text-size-xl);
+
+  background: var(--background-color);
+  color: var(--text-color);
+
+  padding: var(--spacing-2) var(--spacing-4);
+
+  border-bottom: 1px solid var(--text-color);
+  height: 50px;
+  width: 100%;
+}
+
+.appcontainer {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 50px;
+}

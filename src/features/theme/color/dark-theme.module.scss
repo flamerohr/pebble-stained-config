@@ -1,0 +1,20 @@
+@mixin dark {
+  --text-color: #f5f7fb;
+  --background-color: #020617;
+  --theme-color-1: #ff5500;
+  --theme-color-2: #ffff00;
+  --theme-color-3: #00ff00;
+  --theme-color-4: #aaaaff;
+}
+
+.dark {
+  @include dark;
+}
+
+.dark_bw {
+  @include dark;
+  --theme-color-1: #f5f7fb;
+  --theme-color-2: #020617;
+  --theme-color-3: #f5f7fb;
+  --theme-color-4: #020617;
+}

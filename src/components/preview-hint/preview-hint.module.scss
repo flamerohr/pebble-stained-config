@@ -1,0 +1,11 @@
+.container {
+  --shard-size: max(35px, min(10vh, 10vw));
+  min-height: calc(100px + var(--shard-size));
+}
+
+.shard {
+  position: fixed;
+  z-index: 11;
+  width: var(--shard-size);
+  transform: translateX(-50%);
+}

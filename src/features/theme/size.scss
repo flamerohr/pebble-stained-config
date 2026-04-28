@@ -1,0 +1,47 @@
+html {
+  --text-size: 16px;
+
+  --text-size-xs: 0.75rem;
+  --text-size-sm: 0.9rem;
+  --text-size-md: 1rem;
+  --text-size-lg: 1.2rem;
+  --text-size-xl: 1.4rem;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+
+  --border-radius-1: 3px;
+  --border-radius-2: 6px;
+}
+
+html {
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1536px;
+
+  --container-width: 100%;
+  @media (min-width: 640px) {
+    --container-width: var(--screen-sm);
+  }
+  @media (min-width: 768px) {
+    --container-width: var(--screen-md);
+  }
+  @media (min-width: 1024px) {
+    --container-width: var(--screen-lg);
+  }
+  @media (min-width: 1280px) {
+    --container-width: var(--screen-xl);
+  }
+  @media (min-width: 1536px) {
+    --container-width: var(--screen-2xl);
+  }
+}
