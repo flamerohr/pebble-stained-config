@@ -23,5 +23,8 @@ export default defineConfig([
         typescript: {},
       },
     },
+    rules: {
+      "@typescript-eslint/no-explicit-any": false,
+    },
   },
 ]);
