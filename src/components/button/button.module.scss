@@ -3,6 +3,7 @@
   color: var(--text-color);
   background: var(--background-color);
   border-radius: var(--border-radius-2);
+  border: 1px solid var(--text-color);
 
   &:hover,
   &focus {

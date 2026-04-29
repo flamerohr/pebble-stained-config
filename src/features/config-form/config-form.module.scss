@@ -42,3 +42,11 @@
   justify-content: space-between;
   gap: var(--spacing-3);
 }
+
+.footerbuttongroup {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--spacing-3);
+}

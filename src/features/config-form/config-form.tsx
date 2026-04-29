@@ -1,7 +1,7 @@
 import { FormProvider, useForm, useWatch } from "react-hook-form";
 import Select from "#components/form/select/select";
 import { themeList } from "#features/theme/config/theme-list";
-import { useCallback, useEffect, type FC } from "react";
+import { useCallback, useEffect, useState, type FC } from "react";
 import { useTheme } from "#features/theme/state/theme.context";
 // import Checkbox from "#components/form/checkbox/checkbox";
 import PreviewHint from "#components/preview-hint/preview-hint";
@@ -18,13 +18,31 @@ export const ConfigForm: FC<{
   submitUrl: string;
 }> = ({ defaultValues, submitUrl }) => {
   const formMethods = useForm<ConfigFormValues>({
-    defaultValues,
+    defaultValues: defaultConfig,
   });
   const { setColor } = useTheme();
+  const [initialised, setInitialised] = useState(false);
 
-  const { register, control, handleSubmit, setValue } = formMethods;
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { isDirty },
+  } = formMethods;
 
   const theme = useWatch({ control, name: "Theme" });
+
+  useEffect(() => {
+    if (initialised) {
+      return;
+    }
+    setInitialised(true);
+    Object.entries(defaultValues).forEach(([name, value]) => {
+      setValue(name as keyof ConfigFormValues, value);
+    });
+  }, []);
 
   useEffect(() => {
     if (theme < 2) {
@@ -46,10 +64,12 @@ export const ConfigForm: FC<{
   );
 
   const resetToDefault = useCallback(() => {
-    Object.entries(defaultConfig).forEach(([name, value]) => {
-      setValue(name as keyof ConfigFormValues, value);
-    });
-  }, [defaultValues, setValue]);
+    reset();
+  }, [reset]);
+
+  const close = useCallback(() => {
+    window.location.href = submitUrl;
+  }, []);
 
   return (
     <FormProvider {...formMethods}>
@@ -65,7 +85,12 @@ export const ConfigForm: FC<{
         </div>
         <footer className={s.footer}>
           <div className={s.footerbuttons}>
-            <Button onClick={resetToDefault}>Reset defaults</Button>
+            <div className={s.footerbuttongroup}>
+              <Button onClick={close}>Close</Button>
+              {isDirty && (
+                <Button onClick={resetToDefault}>Reset defaults</Button>
+              )}
+            </div>
             <Button type="submit">Apply</Button>
           </div>
         </footer>
