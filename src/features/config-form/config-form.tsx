@@ -7,9 +7,9 @@ import { useTheme } from "#features/theme/state/theme.context";
 import PreviewHint from "#components/preview-hint/preview-hint";
 import Button from "#components/button/button";
 import type { ConfigFormValues } from "./config-form.types";
+import { defaultConfig } from "./helpers/default-config";
 
 import s from "./config-form.module.scss";
-import { defaultConfig } from "./helpers/default-config";
 
 const themeOptions = themeList.map(({ value, label }) => ({ value, label }));
 
