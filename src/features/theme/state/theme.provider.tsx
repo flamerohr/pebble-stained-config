@@ -35,7 +35,7 @@ export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   useEffect(() => {
     let className;
     if (bw) {
-      className = color % 1 === 0 ? bwTheme.light : bwTheme.dark;
+      className = color === 3 ? bwTheme.dark : bwTheme.light;
     } else {
       className = themeMap[color] || colourfulTheme.light;
     }
