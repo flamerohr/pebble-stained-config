@@ -1,7 +1,7 @@
 import { FormProvider, useForm, useWatch } from "react-hook-form";
 import Select from "#components/form/select/select";
 import { themeList } from "#features/theme/config/theme-list";
-import { useCallback, useEffect, useState, type FC } from "react";
+import { useCallback, useEffect, useMemo, useState, type FC } from "react";
 import { useTheme } from "#features/theme/state/theme.context";
 // import Checkbox from "#components/form/checkbox/checkbox";
 import PreviewHint from "#components/preview-hint/preview-hint";
@@ -11,12 +11,11 @@ import { defaultConfig } from "./helpers/default-config";
 
 import s from "./config-form.module.scss";
 
-const themeOptions = themeList.map(({ value, label }) => ({ value, label }));
-
 export const ConfigForm: FC<{
   defaultValues: ConfigFormValues;
+  bw?: boolean;
   submitUrl: string;
-}> = ({ defaultValues, submitUrl }) => {
+}> = ({ defaultValues, bw, submitUrl }) => {
   const formMethods = useForm<ConfigFormValues>({
     defaultValues: defaultConfig,
   });
@@ -34,6 +33,14 @@ export const ConfigForm: FC<{
 
   const theme = useWatch({ control, name: "Theme" });
 
+  const themeOptions = useMemo(
+    () =>
+      themeList
+        .filter((option) => !bw || option.bw)
+        .map(({ value, label }) => ({ value, label })),
+    [],
+  );
+
   useEffect(() => {
     if (initialised) {
       return;
@@ -45,7 +52,7 @@ export const ConfigForm: FC<{
   }, []);
 
   useEffect(() => {
-    if (theme < 2) {
+    if (theme < 4) {
       setColor(theme);
     }
   }, [setColor, theme]);

@@ -1,0 +1,14 @@
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = LF
+
+[README.md]
+max_line_length = 80
+
+[*.{c,h,css,scss,json,js,ts,tsx,jsx,svg}]
+indent_style = space
+indent_size = 2
+insert_final_newline = true

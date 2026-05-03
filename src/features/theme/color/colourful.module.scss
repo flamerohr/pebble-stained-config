@@ -1,0 +1,18 @@
+@mixin colours {
+  --theme-color-1: #ff5500;
+  --theme-color-2: #ffff00;
+  --theme-color-3: #00ff00;
+  --theme-color-4: #aaaaff;
+}
+
+.light {
+  @include colours;
+  --text-color: #020617;
+  --background-color: #f5f7fb;
+}
+
+.dark {
+  @include colours;
+  --text-color: #f5f7fb;
+  --background-color: #020617;
+}

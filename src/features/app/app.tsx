@@ -30,6 +30,7 @@ export const App = () => {
       <div className={s.appcontainer}>
         <ConfigForm
           defaultValues={config}
+          bw={params.get("bw") == "1"}
           submitUrl={params.get("return_to") || "pebblejs://close#"}
         />
       </div>

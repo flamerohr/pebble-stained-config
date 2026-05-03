@@ -9,8 +9,15 @@ import {
 import { ThemeContext } from "#features/theme/state/theme.context";
 
 import "../size.scss";
-import light from "../color/light-theme.module.scss";
-import dark from "../color/dark-theme.module.scss";
+import colourfulTheme from "../color/colourful.module.scss";
+import bwTheme from "../color/bw.module.scss";
+
+const themeMap: Record<number, string> = {
+  0: colourfulTheme.light,
+  1: colourfulTheme.dark,
+  2: bwTheme.light,
+  3: bwTheme.dark,
+};
 
 export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   bw,
@@ -19,16 +26,19 @@ export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   const [color, setColor] = useState<number>(0);
 
   const updateColor = useCallback((newColor: number) => {
-    if (newColor >= 2) {
+    if (newColor >= 4) {
       return;
     }
     setColor(newColor);
   }, []);
 
   useEffect(() => {
-    const className =
-      (color === 1 && (bw ? dark.dark_bw : dark.dark)) ||
-      (bw ? light.light_bw : light.light);
+    let className;
+    if (bw) {
+      className = color % 1 === 0 ? bwTheme.light : bwTheme.dark;
+    } else {
+      className = themeMap[color] || colourfulTheme.light;
+    }
 
     document.documentElement.classList.add(className);
 
