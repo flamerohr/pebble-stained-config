@@ -11,12 +11,14 @@ import { ThemeContext } from "#features/theme/state/theme.context";
 import "../size.scss";
 import colourfulTheme from "../color/colourful.module.scss";
 import bwTheme from "../color/bw.module.scss";
+import blueSkiesTheme from "../color/blue-skies.module.scss";
 
 const themeMap: Record<number, string> = {
   0: colourfulTheme.light,
   1: colourfulTheme.dark,
   2: bwTheme.light,
   3: bwTheme.dark,
+  4: blueSkiesTheme.blueskies,
 };
 
 export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
@@ -26,7 +28,7 @@ export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   const [color, setColor] = useState<number>(0);
 
   const updateColor = useCallback((newColor: number) => {
-    if (newColor >= 4) {
+    if (newColor >= 5) {
       return;
     }
     setColor(newColor);

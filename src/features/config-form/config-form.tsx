@@ -52,7 +52,7 @@ export const ConfigForm: FC<{
   }, []);
 
   useEffect(() => {
-    if (theme < 4) {
+    if (theme < 5) {
       if (bw && (theme < 2 || theme > 3)) {
         // fix b&w to 2 and 3
         setValue("Theme", (theme % 2) + 2);
