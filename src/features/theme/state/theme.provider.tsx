@@ -9,17 +9,7 @@ import {
 import { ThemeContext } from "#features/theme/state/theme.context";
 
 import "../size.scss";
-import colourfulTheme from "../color/colourful.module.scss";
-import bwTheme from "../color/bw.module.scss";
-import blueSkiesTheme from "../color/blue-skies.module.scss";
-
-const themeMap: Record<number, string> = {
-  0: colourfulTheme.light,
-  1: colourfulTheme.dark,
-  2: bwTheme.light,
-  3: bwTheme.dark,
-  4: blueSkiesTheme.blueskies,
-};
+import { themeList } from "../config/theme-list";
 
 export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   bw,
@@ -37,9 +27,14 @@ export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   useEffect(() => {
     let className;
     if (bw) {
-      className = color === 3 ? bwTheme.dark : bwTheme.light;
+      className =
+        themeList.find(({ value }) =>
+          color === 3 ? value === color : value === 2,
+        )?.className || "";
     } else {
-      className = themeMap[color] || colourfulTheme.light;
+      className = (
+        themeList.find(({ value }) => value === color) || themeList[0]
+      )?.className;
     }
 
     document.documentElement.classList.add(className);

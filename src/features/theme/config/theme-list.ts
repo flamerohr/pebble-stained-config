@@ -1,13 +1,36 @@
+import colourfulTheme from "../color/colourful.module.scss";
+import bwTheme from "../color/bw.module.scss";
+import blueSkiesTheme from "../color/blue-skies.module.scss";
+
 interface ThemeOption {
   value: number;
   label: string;
   bw?: boolean;
+  className: string;
 }
 
 export const themeList: ThemeOption[] = [
-  { value: 0, label: "Colorful light background" },
-  { value: 1, label: "Colorful dark background" },
-  { value: 2, label: "Black & white light background", bw: true },
-  { value: 3, label: "Black & white dark background", bw: true },
-  { value: 4, label: "Blue skies" },
+  {
+    value: 0,
+    label: "Colorful light background",
+    className: colourfulTheme.light,
+  },
+  {
+    value: 1,
+    label: "Colorful dark background",
+    className: colourfulTheme.dark,
+  },
+  {
+    value: 2,
+    label: "Black & white light background",
+    className: bwTheme.light,
+    bw: true,
+  },
+  {
+    value: 3,
+    label: "Black & white dark background",
+    className: bwTheme.dark,
+    bw: true,
+  },
+  { value: 4, label: "Blue skies", className: blueSkiesTheme.blueskies },
 ];

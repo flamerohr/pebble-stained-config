@@ -52,7 +52,7 @@ export const ConfigForm: FC<{
   }, []);
 
   useEffect(() => {
-    if (theme < 5) {
+    if (theme < themeList.length) {
       if (bw && (theme < 2 || theme > 3)) {
         // fix b&w to 2 and 3
         setValue("Theme", (theme % 2) + 2);
@@ -65,7 +65,6 @@ export const ConfigForm: FC<{
 
   const applyChanges = useCallback(
     (values: ConfigFormValues) => {
-      console.log(values);
       const params = {
         Theme: values.Theme,
         Bluetooth: values.Bluetooth ? 1 : 0,
