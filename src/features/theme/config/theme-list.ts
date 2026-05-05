@@ -1,6 +1,7 @@
 import colourfulTheme from "../color/colourful.module.scss";
 import bwTheme from "../color/bw.module.scss";
 import blueSkiesTheme from "../color/blue-skies.module.scss";
+import nightlightTheme from "../color/nightlight.module.scss";
 
 interface ThemeOption {
   value: number;
@@ -33,4 +34,5 @@ export const themeList: ThemeOption[] = [
     bw: true,
   },
   { value: 4, label: "Blue skies", className: blueSkiesTheme.blueskies },
+  { value: 5, label: "Nightlight", className: nightlightTheme.nightlight },
 ];

@@ -18,7 +18,7 @@ export const ThemeProvider: FC<PropsWithChildren<{ bw?: boolean }>> = ({
   const [color, setColor] = useState<number>(0);
 
   const updateColor = useCallback((newColor: number) => {
-    if (newColor >= 5) {
+    if (newColor >= themeList.length) {
       return;
     }
     setColor(newColor);
