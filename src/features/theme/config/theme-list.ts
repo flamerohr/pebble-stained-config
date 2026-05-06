@@ -35,4 +35,10 @@ export const themeList: ThemeOption[] = [
   },
   { value: 4, label: "Blue skies", className: blueSkiesTheme.blueskies },
   { value: 5, label: "Nightlight", className: nightlightTheme.nightlight },
+  {
+    value: 6,
+    label: "Blue skies and nightlight mixed",
+    // TODO: add function to switch between day and night preview
+    className: blueSkiesTheme.blueskies,
+  },
 ];
