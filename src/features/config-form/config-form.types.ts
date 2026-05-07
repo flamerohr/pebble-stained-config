@@ -1,4 +1,4 @@
 export interface ConfigFormValues {
-  Theme: number;
+  Theme: string;
   Bluetooth: boolean;
 }

@@ -1,5 +1,4 @@
 import { FormProvider, useForm, useWatch } from "react-hook-form";
-import Select from "#components/form/select/select";
 import { themeList } from "#features/theme/config/theme-list";
 import { useCallback, useEffect, useMemo, useState, type FC } from "react";
 import { useTheme } from "#features/theme/state/theme.context";
@@ -8,6 +7,7 @@ import PreviewHint from "#components/preview-hint/preview-hint";
 import Button from "#components/button/button";
 import type { ConfigFormValues } from "./config-form.types";
 import { defaultConfig } from "./helpers/default-config";
+import RadioThemebox from "#components/form/radio-themebox/radio-themebox";
 
 import s from "./config-form.module.scss";
 
@@ -37,7 +37,12 @@ export const ConfigForm: FC<{
     () =>
       themeList
         .filter((option) => !bw || option.bw)
-        .map(({ value, label }) => ({ value, label })),
+        .map(({ value, label, className, altClassName }) => ({
+          value,
+          label,
+          theme: className,
+          themeAlt: altClassName,
+        })),
     [],
   );
 
@@ -46,27 +51,30 @@ export const ConfigForm: FC<{
       return;
     }
     setInitialised(true);
-    Object.entries(defaultValues).forEach(([name, value]) => {
-      setValue(name as keyof ConfigFormValues, value);
+    Object.keys(defaultConfig).forEach((n) => {
+      const name = n as keyof ConfigFormValues;
+      const value = defaultValues[name];
+      setValue(name, name === "Theme" ? String(value) : value);
     });
   }, []);
 
   useEffect(() => {
-    if (theme < themeList.length) {
-      if (bw && (theme < 2 || theme > 3)) {
+    const numTheme = Number(theme);
+    if (!Number.isNaN(numTheme) && numTheme < themeList.length) {
+      if (bw && (numTheme < 2 || numTheme > 3)) {
         // fix b&w to 2 and 3
-        setValue("Theme", (theme % 2) + 2);
-        setColor((theme % 2) + 2);
+        setValue("Theme", String((numTheme % 2) + 2));
+        setColor((numTheme % 2) + 2);
         return;
       }
-      setColor(theme);
+      setColor(numTheme);
     }
   }, [setColor, theme]);
 
   const applyChanges = useCallback(
     (values: ConfigFormValues) => {
       const params = {
-        Theme: values.Theme,
+        Theme: values.Theme && Number(values.Theme),
         Bluetooth: values.Bluetooth ? 1 : 0,
       };
       window.location.href =
@@ -88,10 +96,15 @@ export const ConfigForm: FC<{
       <form className={s.form} onSubmit={handleSubmit(applyChanges)}>
         <PreviewHint />
         <div className={s.fields}>
-          <Select
+          {/*<Select
             options={themeOptions}
             {...register("Theme", { valueAsNumber: true })}
             label="Theme"
+          />*/}
+          <RadioThemebox
+            label="Theme"
+            options={themeOptions}
+            radioProps={register("Theme")}
           />
           {/*<Checkbox {...register("Bluetooth")} label="Show bluetooth" />*/}
         </div>

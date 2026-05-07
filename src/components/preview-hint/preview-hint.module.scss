@@ -1,5 +1,5 @@
 .container {
-  --shard-size: max(35px, min(10vh, 10vw));
+  --shard-size: max(35px, min(10vh, 10vw, 80px));
   min-height: calc(100px + var(--shard-size));
 }
 

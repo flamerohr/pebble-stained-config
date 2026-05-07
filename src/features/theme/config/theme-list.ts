@@ -8,6 +8,7 @@ interface ThemeOption {
   label: string;
   bw?: boolean;
   className: string;
+  altClassName?: string;
 }
 
 export const themeList: ThemeOption[] = [
@@ -40,5 +41,6 @@ export const themeList: ThemeOption[] = [
     label: "Blue skies and nightlight mixed",
     // TODO: add function to switch between day and night preview
     className: blueSkiesTheme.blueskies,
+    altClassName: nightlightTheme.nightlight,
   },
 ];

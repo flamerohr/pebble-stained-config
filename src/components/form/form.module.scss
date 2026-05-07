@@ -16,6 +16,7 @@
 .inputcontainer {
   position: relative;
   border: 1px solid var(--text-color);
+  border-radius: var(--border-radius-1);
 
   display: flex;
   flex-direction: row;
@@ -41,6 +42,7 @@
   left: var(--spacing-2);
   padding: 0 var(--spacing-1);
   border-radius: var(--border-radius-1);
+  z-index: 8;
 }
 
 .inputlabel {
