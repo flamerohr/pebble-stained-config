@@ -48,6 +48,12 @@
   aspect-ratio: 1 / 1;
   width: 100%;
   max-height: 82px;
+
+  .radiopreview {
+    border: 1px solid var(--text-color);
+    border-radius: var(--border-radius-1);
+    max-width: 80px;
+  }
 }
 
 .radiopreview {
@@ -57,9 +63,6 @@
   transform: translate(-50%, -50%);
   aspect-ratio: 1 / 1;
   width: 100%;
-  max-width: 80px;
-  border-radius: var(--border-radius-1);
-  border: 1px solid var(--text-color);
   z-index: 1;
 }
 
@@ -76,7 +79,13 @@
   position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
-  max-width: 50px;
+  max-width: 52px;
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius-1);
+
+  .radiopreview {
+    max-width: 48px;
+  }
 }
 
 .radiopreviewlabel {
