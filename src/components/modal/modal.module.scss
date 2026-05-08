@@ -39,11 +39,11 @@
 .box {
   position: absolute;
   bottom: 0;
-  left: max(var(--spacing-1), 3vw);
-  right: max(var(--spacing-1), 3vw);
+  left: 3vw;
+  right: 3vw;
   height: max(fit-content, 50vh);
   max-height: calc(100% - max(var(--spacing-3), 10vh));
-  width: calc(100% - 2 * max(var(--spacing-1), 3vw));
+  width: calc(100% - 2 * 3vw);
   border-top-left-radius: var(--border-radius-2);
   border-top-right-radius: var(--border-radius-2);
   z-index: 2;
