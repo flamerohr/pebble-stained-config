@@ -3,7 +3,7 @@ import {
   useState,
   type FC,
   type HTMLAttributes,
-  type ReactElement,
+  type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
 import classNames from "classnames";
@@ -15,9 +15,9 @@ import Icon from "#components/icon/icon";
 interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   show: boolean;
   onHide: () => void;
-  renderContent?: () => ReactElement;
-  renderHeader?: () => ReactElement;
-  renderFooter?: () => ReactElement;
+  renderContent?: () => ReactNode;
+  renderHeader?: () => ReactNode;
+  renderFooter?: () => ReactNode;
 }
 
 const noop = () => null;

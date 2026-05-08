@@ -83,6 +83,7 @@ export const RadioThemebox: FC<RadioThemeboxProps> = ({
       <Modal
         show={show}
         onHide={hideModal}
+        renderHeader={() => "Choose a theme:"}
         renderContent={() => (
           <div className={classNames("list", s.radiothemelist)}>
             {options.map((option, index) => (

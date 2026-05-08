@@ -39,11 +39,13 @@
 .box {
   position: absolute;
   bottom: 0;
-  left: var(--spacing-1);
-  right: var(--spacing-1);
+  left: max(var(--spacing-1), 3vw);
+  right: max(var(--spacing-1), 3vw);
   height: max(fit-content, 50vh);
   max-height: calc(100% - max(var(--spacing-3), 10vh));
-  width: calc(100% - 2 * var(--spacing-1));
+  width: calc(100% - 2 * max(var(--spacing-1), 3vw));
+  border-top-left-radius: var(--border-radius-2);
+  border-top-right-radius: var(--border-radius-2);
   z-index: 2;
   transition: max-height 150ms 150ms;
 
@@ -68,4 +70,12 @@
   flex-direction: row;
   justify-content: space-between;
   padding: var(--spacing-2);
+}
+
+.header {
+  align-items: flex-end;
+}
+
+.footer {
+  align-items: flex-start;
 }
