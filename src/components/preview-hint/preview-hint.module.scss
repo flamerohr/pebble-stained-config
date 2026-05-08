@@ -1,6 +1,9 @@
 .container {
   --shard-size: max(35px, min(10vh, 10vw, 80px));
   min-height: calc(100px + var(--shard-size));
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
 .shard {
@@ -8,4 +11,9 @@
   z-index: 11;
   width: var(--shard-size);
   transform: translateX(-50%);
+}
+
+.background {
+  flex: 1;
+  background: var(--background-color);
 }

@@ -1,8 +1,10 @@
 .radiothemebox {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   max-height: 260px;
+  padding: var(--spacing-2);
+  gap: var(--spacing-2);
 }
 
 .radiothemelist {
@@ -59,10 +61,6 @@
   border-radius: var(--border-radius-1);
   border: 1px solid var(--text-color);
   z-index: 1;
-
-  > rect {
-    fill: var(--background-color);
-  }
 }
 
 .radiopreviewcut {
@@ -72,4 +70,16 @@
 
 .inputlabel {
   text-align: center;
+}
+
+.radiopreviewvalue {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 50px;
+}
+
+.radiopreviewlabel {
+  flex: 1;
+  font-size: var(--text-size-sm);
 }

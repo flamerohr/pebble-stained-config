@@ -1,9 +1,9 @@
-import type { FC, SVGProps } from "react";
+import type { FC, SVGAttributes } from "react";
 
-export const RadioPreview: FC<SVGProps<HTMLOrSVGElement>> = ({ className }) => {
+export const RadioPreview: FC<SVGAttributes<SVGElement>> = (props) => {
   return (
     <svg
-      className={className}
+      {...props}
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
