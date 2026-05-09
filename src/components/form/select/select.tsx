@@ -30,16 +30,13 @@ export const Select: FC<SelectProps> = ({
   return (
     <div className={classNames(className, fs.inputcontainer)}>
       {label && (
-        <label
-          className={classNames("label", fs.inputlabelfloat)}
-          htmlFor={selectId}
-        >
+        <label className={fs.inputlabelfloat} htmlFor={selectId}>
           {label}
         </label>
       )}
       <select
         {...props}
-        className={classNames("select", s.select, fs.inputbox)}
+        className={classNames(s.select, fs.inputbox)}
         id={selectId}
       >
         {options.map((o) => (

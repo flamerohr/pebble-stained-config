@@ -1,10 +1,42 @@
 .checkbox {
-  border: none;
+  position: relative;
   padding: 0 var(--spacing-2);
+  border: none;
+
+  .checkedicon {
+    display: none;
+  }
+  .uncheckedicon {
+    display: flex;
+  }
+
+  &:has(.inputbox:checked) {
+    .checkedicon {
+      display: flex;
+    }
+    .uncheckedicon {
+      display: none;
+    }
+  }
 }
 
 .inputlabel {
   flex: 1;
   font-size: var(--text-size-sm);
+  font-weight: 400;
   padding: var(--spacing-2);
+}
+
+.inputicons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
 }

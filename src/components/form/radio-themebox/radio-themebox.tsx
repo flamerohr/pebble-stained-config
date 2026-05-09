@@ -61,11 +61,7 @@ export const RadioThemebox: FC<RadioThemeboxProps> = ({
       {...props}
       className={classNames(className, fs.inputcontainer, s.radiothemebox)}
     >
-      {label && (
-        <label className={classNames("label", fs.inputlabelfloat)}>
-          {label}
-        </label>
-      )}
+      {label && <label className={fs.inputlabelfloat}>{label}</label>}
       <div className={s.radiopreviewvalue}>
         <RadioPreview className={classNames(s.radiopreview, selected.theme)} />
         {selected.themeAlt && (
@@ -85,7 +81,7 @@ export const RadioThemebox: FC<RadioThemeboxProps> = ({
         onHide={hideModal}
         renderHeader={() => "Choose a theme:"}
         renderContent={() => (
-          <div className={classNames("list", s.radiothemelist)}>
+          <div className={s.radiothemelist}>
             {options.map((option, index) => (
               <RadioThemeitem
                 key={option.value}

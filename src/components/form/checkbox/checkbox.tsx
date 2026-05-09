@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 import s from "./checkbox.module.scss";
 import fs from "../form.module.scss";
+import Icon from "#components/icon/icon";
 
 interface CheckboxProps extends Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -33,17 +34,21 @@ export const Checkbox: FC<CheckboxProps> = ({
       {label && (
         <label
           htmlFor={checkboxId}
-          className={classNames("label", s.inputlabel, fs.inputlabel)}
+          className={classNames(s.inputlabel, fs.inputlabel)}
         >
           {label}
         </label>
       )}
-      <input
-        {...props}
-        id={checkboxId}
-        className={classNames("checkbox", s.select, fs.inputbox)}
-        type="checkbox"
-      />
+      <label className={s.inputicons}>
+        <Icon name="checked-box" className={s.checkedicon} />
+        <Icon name="box" className={s.uncheckedicon} />
+        <input
+          {...props}
+          id={checkboxId}
+          className={classNames("checkbox", s.inputbox, fs.inputbox)}
+          type="checkbox"
+        />
+      </label>
     </div>
   );
 };

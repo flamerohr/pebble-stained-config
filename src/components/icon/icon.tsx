@@ -1,10 +1,19 @@
-import type { FC, SVGAttributes, CSSProperties } from "react";
-
-import s from "./icon.module.scss";
+import {
+  type FC,
+  type SVGAttributes,
+  type CSSProperties,
+  useMemo,
+} from "react";
 import classNames from "classnames";
 
+import s from "./icon.module.scss";
+
+import IconCross from "./components/icon-cross";
+import IconBox from "./components/icon-box";
+import IconCheckedBox from "./components/icon-checked-box";
+
 interface IconProps extends SVGAttributes<SVGElement> {
-  name: "cross";
+  name: "cross" | "box" | "checked-box";
   size?: CSSProperties["width"];
 }
 
@@ -12,29 +21,39 @@ export const Icon: FC<IconProps> = ({
   name,
   className,
   size = "1rem",
-  ...props
+  ...inputProps
 }) => {
-  if (name === "cross") {
-    return (
-      <svg
-        {...props}
-        className={classNames(className, s.icon)}
-        style={{ width: size }}
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M 0 0
-          L 15.5 15.5
-          M 15.5 0
-          L 0 15.5"
-          stroke="var(--outline-color)"
-        />
-      </svg>
-    );
+  const props: SVGAttributes<SVGElement> = {
+    ...inputProps,
+    className: s.icon,
+    style: { width: size },
+  };
+
+  const Image = useMemo(() => {
+    switch (name) {
+      case "cross": {
+        return IconCross;
+      }
+      case "box": {
+        return IconBox;
+      }
+      case "checked-box": {
+        return IconCheckedBox;
+      }
+      default: {
+        return null;
+      }
+    }
+  }, [name]);
+
+  if (!Image) {
+    return null;
   }
-  return null;
+  return (
+    <div className={classNames(className, s.iconcontainer)}>
+      <Image {...props} />
+    </div>
+  );
 };
 
 export default Icon;

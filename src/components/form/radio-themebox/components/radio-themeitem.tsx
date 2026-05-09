@@ -54,13 +54,11 @@ export const RadioThemeitem: FC<RadioThemeitemProps> = ({
         )}
       </div>
       <div className={s.radiolabelbox}>
-        {label && (
-          <div className={classNames("label", s.inputlabel)}>{label}</div>
-        )}
+        {label && <div className={s.inputlabel}>{label}</div>}
         <input
           {...props}
           id={radioId}
-          className={classNames("radio", s.select, fs.inputbox)}
+          className={classNames(s.select, fs.inputbox)}
           type="radio"
         />
       </div>
