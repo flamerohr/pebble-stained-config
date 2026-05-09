@@ -13,7 +13,7 @@
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   border-radius: var(--border-radius-2);
   padding: var(--spacing-3);
-  gap: var(--spacing-3);
+  gap: var(--spacing-1);
   overflow: auto;
 }
 
@@ -21,7 +21,7 @@
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 2;
-  padding: var(--spacing-2);
+  padding: var(--spacing-1);
   gap: var(--spacing-1);
   align-items: flex-start;
   border-radius: var(--border-radius-2);
@@ -45,14 +45,13 @@
 
 .radiopreviewbox {
   position: relative;
-  aspect-ratio: 1 / 1;
+  height: 89px;
   width: 100%;
-  max-height: 82px;
 
   .radiopreview {
     border: 1px solid var(--text-color);
     border-radius: var(--border-radius-1);
-    max-width: 80px;
+    height: 100%;
   }
 }
 
@@ -62,8 +61,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   aspect-ratio: 1 / 1;
-  width: 100%;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .radiopreviewcut {
@@ -78,13 +77,13 @@
 .radiopreviewvalue {
   position: relative;
   aspect-ratio: 1 / 1;
-  width: 100%;
-  max-width: 52px;
+  width: 51px;
   border: 1px solid var(--text-color);
   border-radius: var(--border-radius-1);
+  overflow: hidden;
 
   .radiopreview {
-    max-width: 48px;
+    height: 100%;
   }
 }
 
