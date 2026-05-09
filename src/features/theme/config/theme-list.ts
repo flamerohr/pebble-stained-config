@@ -23,6 +23,15 @@ export const themeList: ThemeOption[] = [
     label: "Colorful dark background",
     className: colourfulTheme.dark,
   },
+  { value: 7, label: "Crisp Winter", className: crispWinterTheme.crispwinter },
+  {
+    value: 6,
+    label: "Automatic day/night change",
+    className: blueSkiesTheme.blueskies,
+    altClassName: nightlightTheme.nightlight,
+  },
+  { value: 4, label: "Blue skies", className: blueSkiesTheme.blueskies },
+  { value: 5, label: "Nightlight", className: nightlightTheme.nightlight },
   {
     value: 2,
     label: "Black & white light background",
@@ -35,14 +44,4 @@ export const themeList: ThemeOption[] = [
     className: bwTheme.dark,
     bw: true,
   },
-  { value: 4, label: "Blue skies", className: blueSkiesTheme.blueskies },
-  { value: 5, label: "Nightlight", className: nightlightTheme.nightlight },
-  {
-    value: 6,
-    label: "Blue skies and nightlight mixed",
-    // TODO: add function to switch between day and night preview
-    className: blueSkiesTheme.blueskies,
-    altClassName: nightlightTheme.nightlight,
-  },
-  { value: 7, label: "Crisp Winter", className: crispWinterTheme.crispwinter },
 ];
