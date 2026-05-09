@@ -44,5 +44,5 @@ export const themeList: ThemeOption[] = [
     className: blueSkiesTheme.blueskies,
     altClassName: nightlightTheme.nightlight,
   },
-  { value: 7, label: "Crisp Window", className: crispWinterTheme.crispwinter },
+  { value: 7, label: "Crisp Winter", className: crispWinterTheme.crispwinter },
 ];

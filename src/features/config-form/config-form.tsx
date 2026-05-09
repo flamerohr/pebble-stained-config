@@ -64,6 +64,7 @@ export const ConfigForm: FC<{
       const params = {
         Theme: values.Theme && Number(values.Theme),
         Bluetooth: values.Bluetooth ? 1 : 0,
+        Battery: values.Battery ? 1 : 0,
       };
       console.log("Submitting values: ", JSON.stringify(params));
       window.location.href =
@@ -97,6 +98,7 @@ export const ConfigForm: FC<{
             radioProps={register("Theme")}
           />
           {/*<Checkbox {...register("Bluetooth")} label="Show bluetooth" />*/}
+          {/*<Checkbox {...register("Battery")} label="Show battery" />*/}
         </div>
         <footer className={s.footer}>
           <div className={s.footerbuttons}>
