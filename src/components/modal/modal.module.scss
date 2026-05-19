@@ -39,11 +39,11 @@
 .box {
   position: absolute;
   bottom: 0;
-  left: 3vw;
-  right: 3vw;
-  height: max(fit-content, 50vh);
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: max-content;
   max-height: calc(100% - max(var(--spacing-3), 10vh));
-  width: calc(100% - 2 * 3vw);
+  width: 94%;
   border-top-left-radius: var(--border-radius-2);
   border-top-right-radius: var(--border-radius-2);
   z-index: 2;
@@ -53,6 +53,14 @@
 
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 640px) and (min-height: 640px) {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    max-height: 90%;
+    width: var(--container-width);
+    border-radius: var(--border-radius-2);
+  }
 }
 
 .content {
@@ -70,6 +78,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: var(--spacing-2);
+  overflow: hidden;
 }
 
 .header {
